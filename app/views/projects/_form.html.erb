@@ -1,0 +1,17 @@
+<%= form_with(model: @project, local: true, class: "contents") do |form| %>
+  <div class="mb-4">
+    <%= form.label :title, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :title, class: "border rounded-1g px-4 py-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :details, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.text_field :details, class: "border rounded-1g px-4 py-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :status, class: "block text-gray-700 font-bold mb-2" %>
+    <%= form.select :status, Project.statuses.keys.map{ |status| [status.humanize, status] }, {}, class: "border rounded-1g px-4 py-2 w-full" %>
+  </div>
+  <div class="inline">
+    <%= form.submit class: "rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+  </div>
+<% end %>
