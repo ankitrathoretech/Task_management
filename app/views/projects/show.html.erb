@@ -8,4 +8,15 @@
   <div class="inline-block ml-2">
     <%= button_to "Destroy this project", @project, method: :delete, class: "mt-2 rounded-md px-3.5 py-2.5 text-white bg-red-600 hover:bg-red-500 font-medium" %>
   </div>
+
+  <p class="text my-05">All Comments: </p>
+  <div id="comments" class="min-w-full">
+    <% if @project.comments.any? %>
+      <% @project.comments.each do |comment| %>
+        <p class="font text-1xl"><%=comment.content%></p>
+      <% end %>
+    <% else %>
+      <p class="text-center my-10">No projects found.</p>
+    <% end %>
+  </div>
 </div>
